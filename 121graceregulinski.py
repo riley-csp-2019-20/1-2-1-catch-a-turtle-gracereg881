@@ -6,10 +6,10 @@ import random
 #-----game configuration---- # define shape, size, color
 shape = "turtle"
 size = 5
-color = "violet"
+color = "limegreen"
 score = 0
 font_setup = ("Arial", 20, "normal")
-timer = 5
+timer = 10
 counter_interval = 1000   #1000 represents 1 second
 timer_up = False
 
@@ -20,8 +20,11 @@ jack.shapesize(size)
 jack.speed(0)
 counter =  trtl.Turtle()
 
+
 score_writer = trtl.Turtle()
-score_writer.pencolor("indigo")
+# this is one of my customizations where I customized the score writer
+score_writer.pencolor("lightgreen")
+score_writer.shape("turtle")
 score_writer.penup()
 score_writer.goto(-370,270)
 font = ("Arial" , 50 , "bold")
@@ -58,7 +61,7 @@ def countdown():
     if timer <= 0:
         counter.up()
         counter.goto(0,0)
-        counter.write("Time's Up", font=font_setup)
+        counter.write("Time's Up!", font=font_setup)
         timer_up = True
         game_over()
     else:
@@ -67,7 +70,8 @@ def countdown():
         counter.getscreen().ontimer(countdown, counter_interval)
 
 def game_over():
-    wn.bgcolor("yellow")
+    # this is a customization I have where I made the background a specific color
+    wn.bgcolor("teal")
     jack.ht()
     jack.goto(500,500)
     counter.goto(0,0)
